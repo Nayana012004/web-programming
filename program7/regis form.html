@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Registration Form</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #eef;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    form {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px gray;
+      width: 300px;
+    }
+    h2 { text-align: center; }
+    input, select, button {
+      width: 100%;
+      margin: 8px 0;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+    .error { color: red; font-size: 13px; }
+    button {
+      background: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover { background: #34495e; }
+  </style>
+</head>
+<body>
+
+<form id="regForm">
+  <h2>Register</h2>
+
+  <input type="text" id="name" placeholder="Full Name">
+  <div class="error" id="nameErr"></div>
+
+  <input type="text" id="email" placeholder="Email">
+  <div class="error" id="emailErr"></div>
+
+  <input type="password" id="pass" placeholder="Password">
+  <div class="error" id="passErr"></div>
+
+  <input type="password" id="confirm" placeholder="Confirm Password">
+  <div class="error" id="confirmErr"></div>
+
+  <select id="gender">
+    <option value="">Select Gender</option>
+    <option>Male</option>
+    <option>Female</option>
+    <option>Other</option>
+  </select>
+  <div class="error" id="genderErr"></div>
+
+  <input type="text" id="mobile" placeholder="Mobile Number">
+  <div class="error" id="mobileErr"></div>
+
+  <button type="submit">Register</button>
+</form>
+
+<script>
+document.getElementById("regForm").onsubmit = function(e) {
+  e.preventDefault();
+
+  
+  let name = document.getElementById("name").value.trim();
+  let email = document.getElementById("email").value.trim();
+  let pass = document.getElementById("pass").value;
+  let confirm = document.getElementById("confirm").value;
+  let gender = document.getElementById("gender").value;
+  let mobile = document.getElementById("mobile").value.trim();
+
+  
+  document.querySelectorAll(".error").forEach(e => e.textContent = "");
+
+  let valid = true;
+
+  if (name === "") { nameErr.textContent = "Enter name"; valid = false; }
+  if (email === "" || !email.includes("@")) { emailErr.textContent = "Enter valid email"; valid = false; }
+  if (pass.length < 6) { passErr.textContent = "Min 6 characters"; valid = false; }
+  if (pass !== confirm) { confirmErr.textContent = "Passwords don't match"; valid = false; }
+  if (gender === "") { genderErr.textContent = "Select gender"; valid = false; }
+  if (mobile.length !== 10 || isNaN(mobile)) { mobileErr.textContent = "Enter 10-digit number"; valid = false; }
+
+  if (valid) {
+    alert("Registration Successful!");
+    document.getElementById("regForm").reset(); 
+  }
+};
+</script>
+
+</body>
+</html>
+

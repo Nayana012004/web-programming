@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String and Math Functions in JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background-color: #f9f9f9;
+        }
+        h2 {
+            color: #2c3e50;
+        }
+        pre {
+            background-color: #eef;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 8px 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Predefined Functions in String and Math Objects</h1>
+
+    <h2>String Object Functions</h2>
+    <p>Examples of some commonly used string functions:</p>
+    <ul>
+        <li><b>length</b> – Returns the length of a string.</li>
+        <li><b>toUpperCase()</b> – Converts text to uppercase.</li>
+        <li><b>toLowerCase()</b> – Converts text to lowercase.</li>
+        <li><b>indexOf()</b> – Finds the position of a substring.</li>
+        <li><b>slice()</b> – Extracts part of a string.</li>
+    </ul>
+
+    <pre id="stringOutput"></pre>
+    <button onclick="showStringFunctions()">Show String Examples</button>
+
+    <h2>Math Object Functions</h2>
+    <p>Examples of some commonly used math functions:</p>
+    <ul>
+        <li><b>Math.round()</b> – Rounds a number to the nearest integer.</li>
+        <li><b>Math.pow()</b> – Raises a number to a power.</li>
+        <li><b>Math.sqrt()</b> – Finds the square root.</li>
+        <li><b>Math.random()</b> – Generates a random number between 0 and 1.</li>
+        <li><b>Math.max()</b> and <b>Math.min()</b> – Return the highest and lowest values.</li>
+    </ul>
+
+    <pre id="mathOutput"></pre>
+    <button onclick="showMathFunctions()">Show Math Examples</button>
+
+    <script>
+        function showStringFunctions() {
+            let str = "Hello JavaScript";
+            let output = "";
+            output += "Original String: " + str + "\n";
+            output += "Length: " + str.length + "\n";
+            output += "Uppercase: " + str.toUpperCase() + "\n";
+            output += "Lowercase: " + str.toLowerCase() + "\n";
+            output += "Index of 'Script': " + str.indexOf("Script") + "\n";
+            output += "Slice(0,5): " + str.slice(0,5) + "\n";
+            document.getElementById("stringOutput").textContent = output;
+        }
+
+        function showMathFunctions() {
+            let output = "";
+            output += "Math.round(4.6): " + Math.round(4.6) + "\n";
+            output += "Math.pow(2,3): " + Math.pow(2,3) + "\n";
+            output += "Math.sqrt(25): " + Math.sqrt(25) + "\n";
+            output += "Math.random(): " + Math.random() + "\n";
+            output += "Math.max(5,10,15): " + Math.max(5,10,15) + "\n";
+            output += "Math.min(5,10,15): " + Math.min(5,10,15) + "\n";
+            document.getElementById("mathOutput").textContent = output;
+        }
+    </script>
+
+</body>
+</html>
+
